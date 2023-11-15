@@ -60,3 +60,4 @@ Route::delete('/grupos/gerenciar/personagens/{id}', [GrupoController::class, 'de
 // Magias
 Route::get('/magias/{id}', [App\Http\Controllers\MagiaController::class, 'index'])->name('magias.index');
 Route::get('/magias/gerenciar/{id}', [App\Http\Controllers\MagiaController::class, 'gerenciar'])->name('magias.gerenciar');
+Route::post('/magias/gerenciar/adicionar/{id}', [App\Http\Controllers\MagiaController::class, 'adicionarMagia'])->name('magias.addMagia');

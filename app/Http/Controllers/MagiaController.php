@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Personagem;
+use App\Models\PersonagemMagia;
+
 
 class MagiaController extends Controller
 {
@@ -17,7 +20,15 @@ class MagiaController extends Controller
         return view('magias.gerenciar_magias', compact('personagem'));
     }
 
-    public function adicionarMagia ($id) {
-        // cakna carau
+    public function adicionarMagia (Request $request, $id) {
+        $personagem = Personagem::findOrFail($id);
+
+        $magiaIndex = $request('magiaIndex');
+
+        $personagemMagia = new PersonagemMagia;
+        $personagemMagia->personagem_id = $id;
+        $personagemMagia->magia_index = $magiaIndex;
+
+        $personagemMagia->save();
     }
 }
