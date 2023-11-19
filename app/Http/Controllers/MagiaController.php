@@ -54,4 +54,10 @@ class MagiaController extends Controller
 
         return redirect()->route('magias.utilizadas', $personagemMagia->personagem_id)->with('msg', 'Magia removida com sucesso!');
     }
+
+    public function show (Request $request, $id) {
+        $magia = json_decode(file_get_contents('https://www.dnd5eapi.co/api/spells/' . $request->index));
+        $personagem = Personagem::findOrFail($id);
+        return view('magias.show', compact('magia', 'personagem'));
+    }
 }

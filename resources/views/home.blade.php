@@ -5,8 +5,8 @@
 @section('content')
 <div class="container">
     <h1 class="text-center" style="color: Black; font-weight: bold; color: #547FBC;">Feed de Atividades</h1>
-    <div class="row mt-2">
-        <hr>
+    <hr>
+    <div class="row mt-5">
         @foreach ($grupos as $grupo)
         <div class="col-md-4">
             <div class="card mb-3">

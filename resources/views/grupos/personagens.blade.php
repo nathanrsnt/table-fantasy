@@ -19,9 +19,8 @@
             <div class="col-lg-8 mx-auto">
               <form action="{{ route('grupos.addPersonagem') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <label for="grupo_id">Grupo</label>
                 <input type="hidden" name="grupo_id" id="grupo_id" value="{{ $grupo->id }}">
-                <input readonly class="form-control" name="grupo_name" id="grupo_name" value="{{ $grupo->nome }}"></input>
+                <input type="hidden" name="grupo_name" id="grupo_name" value="{{ $grupo->nome }}"></input>
 
                 <label for="personagem_id">Selecione seu Personagem</label>
                 <select class="form-control" name="personagem_id" id="personagem_id">

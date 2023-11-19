@@ -16,6 +16,17 @@
     <hr>
     <a href="{{ route('magias.gerenciar', $personagem->id) }}" class="btn mb-3" style="background-color: #547FBC; font-weight: bold; color: white;"><i class="fa fa-arrow-left"></i></a>
     <div class="row mt-5">
+        @if (count($magias) == 0)
+        <div class="col-md-12">
+            <div class="card mb-3">
+              <div class="card-body" style="background-color: #fcf9f9;">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-center" style="color: black;">Nenhuma magia adicionada</h4>
+                </div>
+              </div>
+            </div>
+        </div>
+        @endif
         @foreach ($magias as $magia)
         <div class="col-md-4">
             <div class="card mb-3">
@@ -23,7 +34,11 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <h4 class="text-center" style="color: black;">{{ $magia->magia->name }}</h4>
                     <div class="text-center ml-auto">
-                        <a href="#" class="btn btn-sm" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-ellipsis"></i></a>
+                        <form action="{{ route('magias.show', $personagem->id) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="index" value="{{ $magia->magia_index }}">
+                            <button type="submit" class="btn btn-sm" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-ellipsis"></i></button>
+                        </form>
                         <form action="{{ route('magias.destroy', $personagem->id) }}" method="POST" class="mt-2">
                             @csrf
                             @method('DELETE')

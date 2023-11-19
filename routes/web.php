@@ -62,4 +62,5 @@ Route::get('/magias/{id}', [App\Http\Controllers\MagiaController::class, 'index'
 Route::get('/magias/gerenciar/{id}', [App\Http\Controllers\MagiaController::class, 'gerenciar'])->name('magias.gerenciar');
 Route::post('/magias/gerenciar/adicionar/{id}', [App\Http\Controllers\MagiaController::class, 'adicionarMagia'])->name('magias.addMagia');
 Route::get('/magias/gerenciar/magias-utilizadas/{id}', [App\Http\Controllers\MagiaController::class, 'magiasUtilizadas'])->name('magias.utilizadas');
+Route::post('/magias/show/{id}', [App\Http\Controllers\MagiaController::class, 'show'])->name('magias.show');
 Route::delete('/magias/gerenciar/magias-utilizadas/{id}', [App\Http\Controllers\MagiaController::class, 'destroy'])->name('magias.destroy');
