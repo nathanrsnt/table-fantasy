@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="/img/personagens/{{ $personagem->imagem }}" class="card-img-top" width="300" height="400" alt="{{ $personagem->nome }}">
+                        <img src="/img/personagens/{{ $personagem->imagem }}" class="card-img" width="300" height="400" alt="{{ $personagem->nome }}">
                     </div>
                     <div class="col-lg-6 text-start">
                         <table>
@@ -36,17 +36,17 @@
                                 <td>{{ $personagem->nivel }}</td>
                             </tr>
                         </table>
-                        <div class="text-end">
-                            <a class="button btn" href="{{ route('personagens.index') }}">Voltar</a>
-                            @if(Auth::user()->id == $personagem->usuario)
-                                <a class="button btn" style="background-color: #FFD700; color: white" href="{{ route('personagens.edit', $personagem->id)}}">Editar</a>
-                                <form action="{{ route('personagens.destroy', $personagem->id) }}" method="POST" class="d-inline-block">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                </form>
-                            @endif
-                        </div>
+                    </div>
+                    <div class="text-end">
+                        @if(Auth::user()->id == $personagem->usuario)
+                            <form action="{{ route('personagens.destroy', $personagem->id) }}" method="POST" class="d-inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </form>
+                            <a class="button btn" style="background-color: #547FBC; color: white" href="{{ route('personagens.edit', $personagem->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        @endif
+                        <a class="button btn" href="{{ route('personagens.index') }}"><i class="fa fa-arrow-left"></i></a>
                     </div>
                 </div>
             </div>

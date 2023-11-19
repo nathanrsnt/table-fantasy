@@ -15,7 +15,7 @@
         <div class="card col-lg-6 mt-3">
             <div class="card-body">
                 <div class="col">
-                    <h1 style="color: #FFD700; font-weight: bold;">Editar Personagem</h1>
+                    <h1 style="color: #547FBC; font-weight: bold;">Editar {{ $personagem->nome }}</h1>
                     <div class="col-lg-8 mx-auto">
                         <form action="{{ route('personagens.update', $personagem->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -24,10 +24,18 @@
                             <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome do Personagem" value="{{ $personagem->nome }}">
                             
                             <label for="classe">Classe</label>
-                            <input class="form-control" type="text" name="classe" id="classe" placeholder="Classe do Personagem" value="{{ $personagem->classe }}">
-                            
-                            <label for="raca">Raça</label>
-                            <input class="form-control" type="text" name="raca" id="raca" placeholder="Raça do Personagem" value="{{ $personagem->raca }}">
+                            <select class="form-control" type="text" name="classe" id="classe" placeholder="Classe do Personagem">
+                                @foreach ($classes->results as $classe)
+                                    <option value="{{ $classe->name }}">{{ $classe->name }}</option>
+                                @endforeach
+                            </select>
+
+                            <label for="classe">Raça</label>
+                            <select class="form-control" type="text" name="raca" id="raca" placeholder="Raça do Personagem">
+                                @foreach ($races->results as $raca)
+                                    <option value="{{ $raca->name }}">{{ $raca->name }}</option>
+                                @endforeach
+                            </select>
 
                             <label for="nivel">Nível</label>
                             <input class="form-control" type="number" name="nivel" id="nivel" placeholder="Nível do Personagem" value="{{ $personagem->nivel }}">
@@ -37,11 +45,11 @@
 
                             <!-- Mostrar a imagem atual, se existir -->
                             @if ($personagem->imagem)
-                                <img src="/img/personagens/{{ $personagem->imagem }}" alt="Imagem do Personagem" style="max-width: 200px; margin-top: 10px;">
+                                <img src="/img/personagens/{{ $personagem->imagem }}" alt="Imagem do Personagem" style="max-width: 200px; margin-top: 10px;" class="card-img">
                             @endif
                             
-                            <input class="btn mt-3" type="submit" value="Salvar" style="background-color: #FFD700; color: white;">
-                            <a href="{{ route('personagens.index') }}" class="btn mt-3"">Voltar</a>
+                            <button class="btn mt-3" type="submit" style="background-color: #547FBC; color: white;"><i class="fa-solid fa-check"></i></button>
+                            <a href="{{ route('personagens.index') }}" class="btn mt-3"><i class="fa fa-arrow-left"></i></a>
                         </form>
                     </div>
                 </div>

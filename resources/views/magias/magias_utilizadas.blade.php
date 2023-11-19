@@ -13,7 +13,8 @@
 
 <div class="container">
     <h1 class="text-center" style="color: black; font-weight: bold">Lista de Magias Utilizadas</h1>
-    <a href="{{ route('magias.gerenciar', $personagem->id) }}" class="btn btn-primary mb-3" style="color: white; font-family: bold;">Gerenciar Magias</a>
+    <hr>
+    <a href="{{ route('magias.gerenciar', $personagem->id) }}" class="btn mb-3" style="background-color: #547FBC; font-weight: bold; color: white;"><i class="fa fa-arrow-left"></i></a>
     <div class="row mt-5">
         @foreach ($magias as $magia)
         <div class="col-md-4">
@@ -22,7 +23,7 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <h4 class="text-center" style="color: black;">{{ $magia->magia->name }}</h4>
                     <div class="text-center ml-auto">
-                        <a href="#" class="btn btn-sm" style="background-color: #FFD700; color: white; font-family: bold;"><i class="fa-solid fa-ellipsis"></i></a>
+                        <a href="#" class="btn btn-sm" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-ellipsis"></i></a>
                         <form action="{{ route('magias.destroy', $personagem->id) }}" method="POST" class="mt-2">
                             @csrf
                             @method('DELETE')

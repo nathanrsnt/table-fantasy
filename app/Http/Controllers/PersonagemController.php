@@ -62,7 +62,12 @@ class PersonagemController extends Controller
   public function edit($id)
   {
     $personagem = Personagem::find($id);
-    return view('personagens.edit', compact('personagem'));
+
+    // requisita classes e raças da API
+    $classes = json_decode(file_get_contents('https://www.dnd5eapi.co/api/classes'));
+    $races = json_decode(file_get_contents('https://www.dnd5eapi.co/api/races'));
+
+    return view('personagens.edit', compact('personagem', 'classes', 'races'));
   }
 
   public function update(Request $request, $id)

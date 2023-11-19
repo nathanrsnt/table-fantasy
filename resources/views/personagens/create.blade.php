@@ -15,7 +15,7 @@
             <div class="card col-lg-6 mt-3">
                 <div class="card-body">
                     <div class="col">
-                        <h1 style="color: #FFD700; font-weight: bold;">Novo Personagem</h1>
+                        <h1 style="color: #547FBC; font-weight: bold;">Novo Personagem</h1>
                         <div class="col-lg-8 mx-auto">
                             <form action="{{ route('personagens.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
@@ -42,7 +42,7 @@
                                 <label for="imagem">Imagem</label>
                                 <input class="form-control" type="file" name="imagem" id="imagem" placeholder="Imagem do Personagem">
                                 
-                                <button class="btn mt-3" type="submit" style="background-color: #FFD700; color: white;">Salvar</button>
+                                <button class="btn mt-3" type="submit" style="background-color: #547FBC; color: white;">Salvar</button>
                                 <a href="{{ route('personagens.index') }}" class="btn mt-3">Voltar</a>
                             </form>
                         </div>

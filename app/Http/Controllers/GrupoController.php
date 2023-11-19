@@ -11,7 +11,34 @@ class GrupoController extends Controller
 {
     public function index()
     {
-        $grupos = Grupo::all();
+        $gruposIn = Grupo::all();
+        $personagens = Personagem::all();
+        $personagemGrupo = PersonagemGrupo::all();
+        $grupos = [];
+
+        // encontrar os personagens que estão associados a esse grupo
+        foreach ($gruposIn as $grupo) {
+            if ($grupo->usuario == auth()->user()->id) {
+                if (!in_array($grupo, $grupos)) {
+                    $grupos [] = $grupo;
+                }
+            } else {
+                foreach ($personagemGrupo as $pg) {
+                    if ($pg->grupo_id == $grupo->id) {
+                        foreach ($personagens as $personagem) {
+                            if ($personagem->id == $pg->personagem_id) {
+                                if ($personagem->usuario == auth()->user()->id) {
+                                    if (!in_array($grupo, $grupos)) {
+                                        $grupos [] = $grupo;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         return view('grupos.index', compact('grupos'));
     }
 
@@ -36,7 +63,7 @@ class GrupoController extends Controller
         }
 
         $grupo->save();
-        return redirect()->route('grupos.index');
+        return redirect()->route('grupos.index')->with('msg', 'Grupo criado com sucesso!');
     }
 
     public function edit($id)
@@ -68,7 +95,8 @@ class GrupoController extends Controller
     {
         $grupo = Grupo::find($id);
         $grupo->delete();
-        return redirect()->route('grupos.index');
+
+        return redirect()->route('grupos.index')->with('msg', 'Grupo excluído com sucesso!');
     }
 
     public function gerenciarPersonagens($id) 
@@ -79,14 +107,10 @@ class GrupoController extends Controller
 
     public function personagens($idGrupo)
     {
-        $user = auth()->user();
+        //Chamar todos os personagens que não estão associados a esse grupo
+        $personagens = Personagem::all();
+        $grupo = Grupo::findOrFail($idGrupo);
 
-        if ($user)
-        {
-            $grupo = Grupo::find($idGrupo);
-            #chamar personagens apenas do usuario logado
-            $personagens = Personagem::where('usuario', $user->id)->get();
-        }
 
         return view('grupos.personagens', compact('grupo', 'personagens'));
     }
@@ -99,7 +123,7 @@ class GrupoController extends Controller
         $personagensGrupo->grupo_id = $request->input('grupo_id');  
         $personagensGrupo->save();
 
-        return redirect()->route('grupos.index');
+        return redirect()->route('grupos.allPersonagens', $request->input('grupo_id'))->with('msg', 'Personagem adicionado com sucesso!');
     }
 
     public function allPersonagens($idGrupo)
@@ -109,14 +133,14 @@ class GrupoController extends Controller
         // Recuperar todos os personagens associados a esse grupo.
         $personagens = $grupo->personagens;
 
-        return view('grupos.all_personagens', compact('personagens'));
+        return view('grupos.all_personagens', compact('personagens', 'grupo'));
     }
 
     public function deletePersonagem($id)
     {
         $personagemGrupo = PersonagemGrupo::where('personagem_id', $id)->get()->first();
         $personagemGrupo->delete();
-        return redirect()->route('grupos.index');
+        return redirect()->route('grupos.allPersonagens', $personagemGrupo->grupo_id)->with('msg', 'Personagem removido do grupo com sucesso!');
     }
 
 }

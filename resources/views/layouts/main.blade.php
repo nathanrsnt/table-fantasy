@@ -19,50 +19,47 @@
         }
 
         .navbar {
-            background-color: #9B349D; /* Altere esta cor para amarelo escuro */
+            background-color: #9B349D;
         }
+
+
+        
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFD700;"> <!-- Altere a cor do background aqui -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
     <div class="container-fluid">
         <a class="navbar-brand me-5 ms-4" href="#"><img src="/img/logorpg.png" width="145px" height="35px" title="logo"></a>
-        <!-- Titulo do site no nav bar 
-        <a class="navbar-brand" href="{{route('home') }}" style="color: black;">| Table Fantasy |</a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('home') }}">Home</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+                <li class="nav-item ms-2">
+                    <a class="nav-link active" aria-current="page" href="{{route('home') }}" style="color: #547FBC; font-weight: bold;">Home</a>
                 </li>
                 @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('personagens.index') }}">Personagens</a>
+                <li class="nav-item ms-2">
+                    <a class="nav-link" href="{{route('personagens.index') }}" style="color: #547FBC; font-weight: bold;">Personagens</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('grupos.index') }}">Party</a>
+                <li class="nav-item ms-2">
+                    <a class="nav-link" href="{{route('grupos.index') }}" style="color: #547FBC; font-weight: bold;">Grupos</a>
+                </li>
+                <li class="nav-item ms-2">
+                    <a class="nav-link" href="#" style="color: #547FBC; font-weight: bold;">Sessões</a>
                 </li>
                 @endauth
             </ul>
-            <ul class="navbar-nav me-5">
-                <li class="nav-item pesquisa-input" id="navbarSupportedContent">
-                    <form class="d-flex" action="" method="post">
-                        @csrf
-                        <input type="text" class="form-control col-lg-2 " placeholder=" 🔎 Pesquisar " id="search" name="search" style="background-color: #F8F6F6;">
-                    </form>
-                </li>
-            </ul> 
+            
             <ul class="navbar-nav ml-auto">
                 @auth
                 <li class="nav-item">
-                    <a href="{{ route('profile.show')}}" class="btn" style="background-color: white; color: #FFD700;">Perfil</a>
+                    <a href="{{ route('profile.show')}}" class="btn" style="background-color: white; color: #547FBC; font-weight: bold;">Perfil</a>
                 </li>
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-outline ms-2" style="color: black;">Logout</button>
+                        <button type="submit" class="btn btn-outline ms-2" style="color: black; font-weight: bold;">Logout</button>
                     </form>
                 </li>
                 @endauth
@@ -71,7 +68,7 @@
                     <a href="/login" class="btn btn-outline me-2">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/register" class="btn" style="background-color: white; color: #FFD700;">Sign Up</a>
+                    <a href="/register" class="btn" style="background-color: white; color: #547FBC; font-weight: bold;">Sign Up</a>
                 </li>
                 @endguest
             </ul>
