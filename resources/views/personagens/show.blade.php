@@ -39,7 +39,7 @@
                         <div class="text-end">
                             <a class="button btn" href="{{ route('personagens.index') }}">Voltar</a>
                             @if(Auth::user()->id == $personagem->usuario)
-                                <a class="button btn" style="background-color: #9B349D; color: white" href="{{ route('personagens.edit', $personagem->id)}}">Editar</a>
+                                <a class="button btn" style="background-color: #FFD700; color: white" href="{{ route('personagens.edit', $personagem->id)}}">Editar</a>
                                 <form action="{{ route('personagens.destroy', $personagem->id) }}" method="POST" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')

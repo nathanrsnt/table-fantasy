@@ -15,7 +15,7 @@
         <div class="card col-lg-6 mt-3">
             <div class="card-body">
                 <div class="col">
-                    <h1 style="color: #9B349D; font-weight: bold;">Editar Personagem</h1>
+                    <h1 style="color: #FFD700; font-weight: bold;">Editar Personagem</h1>
                     <div class="col-lg-8 mx-auto">
                         <form action="{{ route('personagens.update', $personagem->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -40,7 +40,7 @@
                                 <img src="/img/personagens/{{ $personagem->imagem }}" alt="Imagem do Personagem" style="max-width: 200px; margin-top: 10px;">
                             @endif
                             
-                            <input class="btn mt-3" type="submit" value="Salvar" style="background-color: #9B349D; color: white;">
+                            <input class="btn mt-3" type="submit" value="Salvar" style="background-color: #FFD700; color: white;">
                             <a href="{{ route('personagens.index') }}" class="btn mt-3"">Voltar</a>
                         </form>
                     </div>
