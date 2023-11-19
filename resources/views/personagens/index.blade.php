@@ -26,7 +26,7 @@
                     <div class="text-center">
                         <a href="{{ route('personagens.show', $personagem->id) }}" class="btn" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-ellipsis"></i></a>
                         <a href="{{ route('personagens.edit', $personagem->id) }}" class="btn" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="" class="btn" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-sack-dollar"></i></a>
+                        <a href="{{ route('itens.gerenciar', $personagem->id) }}" class="btn" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-sack-dollar"></i></a>
                         <a href="{{ route('magias.gerenciar', $personagem->id)}}" class="btn" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-wand-sparkles"></i></a>
                         <form action="{{ route('personagens.destroy', $personagem->id) }}" method="POST" class="d-inline-block">
                                 @csrf

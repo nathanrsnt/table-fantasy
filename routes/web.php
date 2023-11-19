@@ -64,3 +64,12 @@ Route::post('/magias/gerenciar/adicionar/{id}', [App\Http\Controllers\MagiaContr
 Route::get('/magias/gerenciar/magias-utilizadas/{id}', [App\Http\Controllers\MagiaController::class, 'magiasUtilizadas'])->name('magias.utilizadas');
 Route::post('/magias/show/{id}', [App\Http\Controllers\MagiaController::class, 'show'])->name('magias.show');
 Route::delete('/magias/gerenciar/magias-utilizadas/{id}', [App\Http\Controllers\MagiaController::class, 'destroy'])->name('magias.destroy');
+
+
+// Itens
+Route::get('/itens/{id}', [App\Http\Controllers\ItemController::class, 'index'])->name('itens.index');
+Route::get('/itens/gerenciar/{id}', [App\Http\Controllers\ItemController::class, 'gerenciar'])->name('itens.gerenciar');
+Route::post('/itens/gerenciar/adicionar/{id}', [App\Http\Controllers\ItemController::class, 'adicionarItem'])->name('itens.addItem');
+Route::get('/itens/gerenciar/itens-utilizados/{id}', [App\Http\Controllers\ItemController::class, 'itensUtilizados'])->name('itens.utilizados');
+Route::post('/itens/show/{id}', [App\Http\Controllers\ItemController::class, 'show'])->name('itens.show');
+Route::delete('/itens/gerenciar/itens-utilizados/{id}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('itens.destroy');
