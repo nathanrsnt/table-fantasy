@@ -58,8 +58,8 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
                         @auth
                         <li class="nav-item">
-                            <a class="btn" style="background-color: white; color: black; font-weight: bold;">{{ auth()->user()->name }}<a>
-                            <a href="{{ route('profile.show')}}" class="btn" style="background-color: white; color: #547FBC; font-weight: bold;">Acessar Perfil</a>
+                            <a class="btn" style="background-color: white; color: black; font-weight: bold;"><i class="fa-solid fa-user"></i> {{ auth()->user()->name }}<a>
+                            <a href="{{ route('profile.show')}}" class="btn" style="background-color: white; color: #547FBC; font-weight: bold;"><i class="fa-solid fa-address-card"></i> Acessar Perfil</a>
                         </li>
                         <li class="nav-item">
                             <hr>
@@ -70,7 +70,7 @@
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <hr>
-                                <button type="submit" class="btn btn-outline" style="color: red; font-weight: bold;">Logout</button>
+                                <button type="submit" class="btn btn-outline" style="color: red; font-weight: bold;"><i class="fa-solid fa-door-open"></i> Logout</button>
                             </form>
                         </li>
                         @endauth
