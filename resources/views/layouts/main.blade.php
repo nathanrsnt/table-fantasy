@@ -22,6 +22,9 @@
             background-color: #9B349D;
         }
 
+        .navbar-nav .dropdown-toggle::after {
+            content: none;
+        }
 
         
     </style>
@@ -47,27 +50,40 @@
                 </li>
                 @endauth
             </ul>
-            
             <ul class="navbar-nav ml-auto">
-                @auth
-                <li class="nav-item">
-                    <a href="{{ route('profile.show')}}" class="btn" style="background-color: white; color: #547FBC; font-weight: bold;">Perfil</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+                        @auth
+                        <li class="nav-item">
+                            <a class="btn" style="background-color: white; color: black; font-weight: bold;">{{ auth()->user()->name }}<a>
+                            <a href="{{ route('profile.show')}}" class="btn" style="background-color: white; color: #547FBC; font-weight: bold;">Acessar Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <hr>
+                            <a class="btn" style="background-color: white; color: black; font-weight: bold;">Session ID: {{ auth()->user()->id }}<a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <hr>
+                                <button type="submit" class="btn btn-outline" style="color: red; font-weight: bold;">Logout</button>
+                            </form>
+                        </li>
+                        @endauth
+                        @guest
+                        <li class="nav-item">
+                            <a href="/login" class="btn btn-outline me-2">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/register" class="btn" style="background-color: white; color: #547FBC; font-weight: bold;">Sign Up</a>
+                        </li>
+                        @endguest
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-outline ms-2" style="color: black; font-weight: bold;">Logout</button>
-                    </form>
-                </li>
-                @endauth
-                @guest
-                <li class="nav-item">
-                    <a href="/login" class="btn btn-outline me-2">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/register" class="btn" style="background-color: white; color: #547FBC; font-weight: bold;">Sign Up</a>
-                </li>
-                @endguest
             </ul>
         </div>
     </div>
