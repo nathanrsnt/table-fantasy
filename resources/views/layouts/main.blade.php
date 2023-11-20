@@ -45,9 +45,6 @@
                 <li class="nav-item ms-2">
                     <a class="nav-link" href="{{route('grupos.index') }}" style="color: #547FBC; font-weight: bold;">Grupos</a>
                 </li>
-                <li class="nav-item ms-2">
-                    <a class="nav-link" href="#" style="color: #547FBC; font-weight: bold;">Sessões</a>
-                </li>
                 @endauth
             </ul>
             

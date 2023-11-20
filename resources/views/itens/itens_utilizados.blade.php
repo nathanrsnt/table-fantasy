@@ -36,7 +36,7 @@
                     <div class="text-center ml-auto">
                         <form action="{{ route('itens.show', $personagem->id) }}" method="POST">
                             @csrf
-                            <input type="hidden" name="index" value="{{ $item->item_index }}">
+                            <input type="hidden" name="index" value="{{ $item->index }}">
                             <button type="submit" class="btn btn-sm" style="background-color: #547FBC; color: white; font-family: bold;"><i class="fa-solid fa-ellipsis"></i></button>
                         </form>
                         <form action="{{ route('itens.destroy', $personagem->id) }}" method="POST" class="mt-2">

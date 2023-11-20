@@ -54,7 +54,7 @@ Route::get('/grupos/gerenciar/{id}', [GrupoController::class, 'gerenciarPersonag
 Route::get('/grupos/gerenciar/personagens/all/{id}', [GrupoController::class, 'allPersonagens'])->name('grupos.allPersonagens');
 Route::get('/grupos/gerenciar/personagens/{id}', [GrupoController::class, 'personagens'])->name('grupos.personagens');
 Route::post('/grupos/gerenciar/personagens', [GrupoController::class, 'addPersonagem'])->name('grupos.addPersonagem');
-Route::delete('/grupos/gerenciar/personagens/{id}', [GrupoController::class, 'deletePersonagem'])->name('grupos.deletePersonagem');
+Route::delete('/grupos/gerenciar/personagens/{id}/{idGrupo}', [GrupoController::class, 'deletePersonagem'])->name('grupos.deletePersonagem');
 
 
 // Magias

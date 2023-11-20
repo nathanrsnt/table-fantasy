@@ -16,11 +16,6 @@
                     <p class="card-text">Nome: {{$grupo->nome}}</p>
                     <p class="card-text">Criado por: {{$grupo->usuario->name}}</p>
                     <p class="card-text">Grupo criado em: {{$grupo->created_at}}</p>   
-                    <div class="text-center">
-                        <form action="">
-                            <a href="" class="btn" style="background-color: #547FBC; color: white; font-weight: bold;"><i class="fa-solid fa-eye"></i></a>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -35,11 +30,6 @@
                     <p class="card-text">Nome: {{$personagem->nome}}</p>
                     <p class="card-text">Criado por: {{$personagem->usuario->name}}</p>
                     <p> Data: {{$personagem->created_at}} </p>
-                    <div class="text-center">
-                        <form action="">
-                            <a href="" class="btn" style="background-color: #547FBC; color: white; font-weight: bold;"><i class="fa-solid fa-eye"></i></a>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -54,11 +44,6 @@
                     <p class="card-text">Personagem: {{$personagemMagia->personagem->nome}}</p>
                     <p> Data: {{$personagemMagia->created_at}}</p>
                     <p class="card-text">Magia: {{$personagemMagia->magia_name}}</p>
-                    <div class="text-center">
-                        <form action="">
-                            <a href="" class="btn" style="background-color: #547FBC; color: white; font-weight: bold;"><i class="fa-solid fa-eye"></i></a>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

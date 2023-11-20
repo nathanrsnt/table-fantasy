@@ -136,9 +136,10 @@ class GrupoController extends Controller
         return view('grupos.all_personagens', compact('personagens', 'grupo'));
     }
 
-    public function deletePersonagem($id)
+    public function deletePersonagem($id, $idGrupo)
     {
-        $personagemGrupo = PersonagemGrupo::where('personagem_id', $id)->get()->first();
+        $grupo = Grupo::findOrFail($idGrupo);
+        $personagemGrupo = PersonagemGrupo::where('personagem_id', $id)->where('grupo_id', $grupo->id)->first();
         $personagemGrupo->delete();
         return redirect()->route('grupos.allPersonagens', $personagemGrupo->grupo_id)->with('msg', 'Personagem removido do grupo com sucesso!');
     }

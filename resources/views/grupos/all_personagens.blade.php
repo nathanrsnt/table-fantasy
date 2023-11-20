@@ -33,7 +33,7 @@
                     <p class="card-text">Nível: {{ $personagem->nivel }}</p>
                     @if ($grupo->usuario == auth()->user()->id)
                         <div class="text-center">
-                            <form action="{{ route('grupos.deletePersonagem', $personagem->id) }}" method="POST">
+                            <form action="{{ route('grupos.deletePersonagem', ['id' => $personagem->id, 'idGrupo' => $grupo->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" style="font-family: bold;"><i class="fa fa-trash"></i></button>
@@ -43,7 +43,7 @@
 
                     @if ($personagem->usuario == auth()->user()->id && $grupo->usuario != auth()->user()->id)
                         <div class="text-center">
-                            <form action="{{ route('grupos.deletePersonagem', $personagem->id) }}" method="POST" class="d-inline-block">
+                            <form action="{{ route('grupos.deletePersonagem', ['id' => $personagem->id, 'idGrupo' => $grupo->id]) }}" method="POST" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn" style="background-color: red; color: white; font-family: bold;"><i class="fa-solid fa-door-open"></i></button>
