@@ -1,5 +1,5 @@
 # Table Fantasy
-### Configuração de ambiênte local.
+### Configuração de ambiente local.
 
 ## Instalação de Dependências
 
