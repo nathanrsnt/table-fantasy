@@ -1,11 +1,12 @@
-# README
+# Table Fantasy
+### Configuração de ambiênte local.
 
 ## Instalação de Dependências
 
 
 1. Clone o repositório:
    ```
-    git clone https://github.com/nathanrsnt/inside-app.git
+    git clone https://github.com/nathanrsnt/table-fantasy.git
     ```
 2. Abra o terminal na pasta do projeto.
    
