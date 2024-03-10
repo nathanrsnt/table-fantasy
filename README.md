@@ -2,25 +2,44 @@
 
 ## Instalação de Dependências
 
-1. Abra o terminal na pasta do projeto.
-2. Execute o comando ```composer install``` para instalar as dependências do Laravel.
+
+1. Clone o repositório:
+   ```
+    git clone https://github.com/nathanrsnt/inside-app.git
+    ```
+2. Abra o terminal na pasta do projeto.
+   
+3. Execute o comando para instalar as dependências do Laravel:
+   ```
+   composer install
+   ``` 
 
 ## Configuração do Ambiente
 
 1. Faça uma cópia do arquivo ```.env.example``` e renomeie para ```.env```.
+
 2. Configure as variáveis de ambiente no arquivo ```.env```, como o banco de dados.
 
 ## Chave de Aplicação
 
-Execute o comando ```php artisan key:generate``` para gerar a chave de aplicação.
+Execute o comando para gerar a chave de aplicação:
+    ```
+    php artisan key:generate
+    ```
 
 ## Migrações do Banco de Dados
 
-Execute o comando ```php artisan migrate``` para criar as tabelas do banco de dados.
+Execute o comando para criar as tabelas do banco de dados:
+    ```
+    php artisan migrate
+    ```
 
 ## Iniciar Aplicação Localmente
 
-Execute o comando ```php artisan serve``` para iniciar o servidor embutido do Laravel.
+Execute o comando para iniciar o servidor embutido do Laravel:
+    ```
+    php artisan serve
+    ```
 
 ## Acesso à Aplicação
 
